@@ -1,7 +1,4 @@
 import { FlatCompat } from "@eslint/eslintrc";
-import stylisticTs from "@stylistic/eslint-plugin";
-import eslintConfigPrettier from "eslint-config-prettier";
-import importSort from "eslint-plugin-simple-import-sort";
 import tseslint from "typescript-eslint";
 
 const compat = new FlatCompat({
@@ -9,19 +6,6 @@ const compat = new FlatCompat({
 });
 
 export default tseslint.config(
-  stylisticTs.configs.customize({
-    quotes: "double",
-    semi: true,
-  }),
-  {
-    plugins: {
-      "simple-import-sort": importSort,
-    },
-    rules: {
-      "simple-import-sort/imports": "warn",
-      "simple-import-sort/exports": "warn",
-    },
-  },
   {
     ignores: [".next"],
   },
@@ -38,10 +22,7 @@ export default tseslint.config(
       "@typescript-eslint/consistent-type-definitions": "off",
       "@typescript-eslint/consistent-type-imports": [
         "warn",
-        {
-          prefer: "type-imports",
-          fixStyle: "inline-type-imports",
-        },
+        { prefer: "type-imports", fixStyle: "inline-type-imports" },
       ],
       "@typescript-eslint/no-unused-vars": [
         "warn",
@@ -64,5 +45,4 @@ export default tseslint.config(
       },
     },
   },
-  eslintConfigPrettier,
 );
