@@ -62,6 +62,8 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
  */
 export const createCallerFactory = t.createCallerFactory;
 
+export const mergeRouters = t.mergeRouters;
+
 /**
  * 3. ROUTER & PROCEDURE (THE IMPORTANT BIT)
  *
